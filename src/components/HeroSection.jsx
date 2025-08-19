@@ -1,0 +1,89 @@
+import { useState, useEffect } from "react";
+import ProfileCard from "../ui/ProfileCard/ProfileCard";
+import { motion, AnimatePresence } from "framer-motion";
+
+
+const roles = ["Web Development", "Mobile Development", "Backend Development"];
+
+export default function HeroSection() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % roles.length);
+    }, 2000); // ganti setiap 2 detik
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section className="min-h-screen flex items-center px-4 sm:px-6 lg:px-20 text-white" id="home">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center w-full">
+        
+        {/* Kolom kiri */}
+        <div className="space-y-4 text-left sm:text-center lg:text-left">
+          <p className="text-2xl sm:text-3xl md:text-4xl text-gray-400">
+            Hello World !!!
+          </p>
+
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
+            I'M{" "}
+            <span className="text-purple-400">Rehan Pranama Putra</span>
+          </h1>
+          
+          <div className="relative h-8 sm:h-10 overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={roles[index]}
+                initial={{ y: -20, opacity: 0, filter: "blur(8px)" }}
+                animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+                exit={{ y: 20, opacity: 0, filter: "blur(8px)" }}
+                transition={{ duration: 0.6 }}
+                className="text-lg sm:text-2xl md:text-3xl font-medium text-gray-300"
+              >
+                {roles[index]}
+              </motion.p>
+            </AnimatePresence>
+          </div>
+
+          <p className="text-gray-400 max-w-lg mx-auto lg:mx-0 text-sm sm:text-base">
+            Pengembang aplikasi dan web yang berfokus pada desain modern,
+            performa tinggi, dan solusi berbasis teknologi terkini.
+            Mengembangkan aplikasi mobile, website interaktif.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center lg:justify-start">
+            <a
+              href="#cv"
+              className="px-5 py-2 border border-gray-500 hover:border-purple-500 rounded-lg transition text-sm sm:text-base"
+            >
+              Download CV
+            </a>
+            <a
+              href="#projects"
+              className="px-5 py-2 border border-gray-500 hover:border-purple-500 rounded-lg transition text-sm sm:text-base"
+            >
+              Explore My Projects
+            </a>
+          </div>
+        </div>
+
+        {/* Kolom kanan */}
+          <div className="flex justify-center lg:justify-end">
+            <ProfileCard
+              className="custom-profile-card"
+              name="Rehan Pranama Putra"
+              title="Web & Mobile Development"
+              handle="sikoding"
+              status="Online"
+              contactText="Contact Me"
+              avatarUrl="/profilcard.png"
+              showUserInfo={true}
+              enableTilt={true}
+              enableMobileTilt={false}
+              onContactClick={() => console.log("Contact clicked")}
+            />
+          </div>
+      </div>
+    </section>
+  );
+}
