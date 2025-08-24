@@ -1,12 +1,22 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"; // Hapus useRef, useLayoutEffect karena tidak lagi pakai GSAP
 import ProfileCard from "../ui/ProfileCard/ProfileCard";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion"; // Pastikan motion diimpor
 
+// Hapus impor dan pendaftaran GSAP/ScrollTrigger
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// gsap.registerPlugin(ScrollTrigger);
 
 const roles = ["Web Development", "Mobile Development", "Backend Development"];
 
-export default function HeroSection() {
+// Menggunakan React.forwardRef untuk meneruskan ref ke elemen DOM akar
+const HeroSection = React.forwardRef((props, ref) => { // 'ref' adalah parameter kedua
   const [index, setIndex] = useState(0);
+
+  // Hapus refs GSAP yang tidak lagi digunakan
+  // const leftColRef = useRef(null);
+  // const rightColRef = useRef(null);
+  // const sectionContentRef = useRef(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -15,9 +25,50 @@ export default function HeroSection() {
     return () => clearInterval(timer);
   }, []);
 
+  // Hapus useLayoutEffect untuk GSAP
+  // useLayoutEffect(() => {
+  //   let ctx = gsap.context(() => {
+  //     if (leftColRef.current) {
+  //       gsap.fromTo(leftColRef.current, 
+  //         { autoAlpha: 0, x: -100 },
+  //         {
+  //           autoAlpha: 1, x: 0, duration: 1.2, ease: "power2.out",
+  //           scrollTrigger: {
+  //             trigger: sectionContentRef.current,
+  //             start: "top center+=100",
+  //             toggleActions: "play none none reverse",
+  //           }
+  //         }
+  //       );
+  //     }
+  //     if (rightColRef.current) {
+  //       gsap.fromTo(rightColRef.current,
+  //         { autoAlpha: 0, x: 100 },
+  //         {
+  //           autoAlpha: 1, x: 0, duration: 1.2, ease: "power2.out",
+  //           scrollTrigger: {
+  //             trigger: sectionContentRef.current,
+  //             start: "top center+=100",
+  //             toggleActions: "play none none reverse",
+  //           }
+  //         }
+  //       );
+  //     }
+  //   }, ref);
+  //   return () => ctx.revert();
+  // }, []);
+
   return (
-    <section className="min-h-screen flex items-center px-4 sm:px-6 lg:px-20 text-white" id="home">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center w-full">
+    // Menerapkan ref ke elemen DOM akar <section>
+    <section ref={ref} className="min-h-screen flex items-center px-4 sm:px-6 lg:px-20 text-white" id="home">
+      {/* Bungkus kedua kolom dengan motion.div untuk animasi scroll Framer Motion */}
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }} // Awal: tersembunyi, geser dari bawah
+        whileInView={{ opacity: 1, y: 0 }} // Saat masuk viewport: muncul, kembali ke posisi
+        viewport={{ once: false, amount: 0.3 }} // Animasi akan berulang, saat 30% elemen terlihat
+        transition={{ duration: 0.8, ease: "easeOut" }} // Durasi dan easing animasi
+        className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center w-full"
+      >
         
         {/* Kolom kiri */}
         <div className="space-y-4 text-left sm:text-center lg:text-left">
@@ -83,7 +134,9 @@ export default function HeroSection() {
               onContactClick={() => console.log("Contact clicked")}
             />
           </div>
-      </div>
+      </motion.div>
     </section>
   );
-}
+});
+
+export default HeroSection;

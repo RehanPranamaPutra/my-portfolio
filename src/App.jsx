@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hyperspeed from "./ui/Hyperspeed/Hyperspeed";
@@ -8,16 +8,15 @@ import AboutSection from "./components/AboutSection";
 import PageTransition from "./components/PageTransition";
 import SkillsSection from "./components/SkillSection";
 import ProjectSection from "./components/ProjectSection";
+import ContactSection from "./components/ContactSection";
 // import SplashCursor from "./ui/SplashCursor/SplashCursor";
 
 function App() {
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   return (
     <>
-      {/* {loading && <LoadingScreen onFinish={() => setLoading(false)} />} */}
-
-      {/* Background Hyperspeed */}
+      {/* Background Hyperspeed selalu ditampilkan */}
       <div
         style={{
           width: "100%",
@@ -25,23 +24,32 @@ function App() {
           position: "fixed",
           top: 0,
           left: 0,
-          zIndex: -1,
+          zIndex: -1, // zIndex rendah agar berada di belakang
         }}
       >
         <Hyperspeed />
       </div>
 
-      <Navbar />
+      {/* Tampilkan LoadingScreen jika state loading adalah true */}
+      {loading && <LoadingScreen onFinish={() => setLoading(false)} />}
 
-      {/* ✅ Bungkus semua section dalam animasi */}
-      <div className="border">
-        <PageTransition>
-          <HeroSection />
-          <AboutSection />
-          <SkillsSection />
-          <ProjectSection />
-        </PageTransition>
-      </div>
+      {/* Tampilkan sisa aplikasi hanya jika state loading adalah false */}
+      {!loading && (
+        <>
+          <Navbar />
+
+          {/* Bungkus semua section dalam animasi PageTransition */}
+          <div>
+            <PageTransition>
+              <HeroSection />
+              <AboutSection />
+              <SkillsSection />
+              <ProjectSection />
+              <ContactSection />
+            </PageTransition>
+          </div>
+        </>
+      )}
     </>
   );
 }

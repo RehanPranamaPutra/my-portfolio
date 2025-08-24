@@ -22,7 +22,7 @@ export default function SkillsSection() {
   ];
 
   return (
-    <section className="flex justify-center items-center min-h-screen px-6 py-16 md:py-24">
+    <section className="flex justify-center items-center min-h-screen px-6 py-16 md:py-24" id="skills">
       <div className="relative max-w-6xl w-full bg-black/60 rounded-2xl border border-purple-500/30 shadow-[0_0_30px_rgba(168,85,247,0.5)] overflow-hidden p-8 md:p-12 backdrop-blur">
         <h2 className="text-4xl font-bold mb-10 text-center">Tech Stack</h2>
         
