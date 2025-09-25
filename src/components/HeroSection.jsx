@@ -10,7 +10,8 @@ import { motion, AnimatePresence } from "framer-motion"; // Pastikan motion diim
 const roles = ["Web Development", "Mobile Development", "Backend Development"];
 
 // Menggunakan React.forwardRef untuk meneruskan ref ke elemen DOM akar
-const HeroSection = React.forwardRef((props, ref) => { // 'ref' adalah parameter kedua
+const HeroSection = React.forwardRef((props, ref) => {
+  // 'ref' adalah parameter kedua
   const [index, setIndex] = useState(0);
 
   // Hapus refs GSAP yang tidak lagi digunakan
@@ -29,7 +30,7 @@ const HeroSection = React.forwardRef((props, ref) => { // 'ref' adalah parameter
   // useLayoutEffect(() => {
   //   let ctx = gsap.context(() => {
   //     if (leftColRef.current) {
-  //       gsap.fromTo(leftColRef.current, 
+  //       gsap.fromTo(leftColRef.current,
   //         { autoAlpha: 0, x: -100 },
   //         {
   //           autoAlpha: 1, x: 0, duration: 1.2, ease: "power2.out",
@@ -60,16 +61,19 @@ const HeroSection = React.forwardRef((props, ref) => { // 'ref' adalah parameter
 
   return (
     // Menerapkan ref ke elemen DOM akar <section>
-    <section ref={ref} className="min-h-screen flex items-center px-4 sm:px-6 lg:px-20 text-white" id="home">
+    <section
+      ref={ref}
+      className="min-h-screen flex items-center px-4 sm:px-6 lg:px-20 text-white pt-20"
+      id="home"
+    >
       {/* Bungkus kedua kolom dengan motion.div untuk animasi scroll Framer Motion */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 50 }} // Awal: tersembunyi, geser dari bawah
         whileInView={{ opacity: 1, y: 0 }} // Saat masuk viewport: muncul, kembali ke posisi
         viewport={{ once: false, amount: 0.3 }} // Animasi akan berulang, saat 30% elemen terlihat
         transition={{ duration: 0.8, ease: "easeOut" }} // Durasi dan easing animasi
         className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center w-full"
       >
-        
         {/* Kolom kiri */}
         <div className="space-y-4 text-left sm:text-center lg:text-left">
           <p className="text-2xl sm:text-3xl md:text-4xl text-gray-400">
@@ -77,10 +81,9 @@ const HeroSection = React.forwardRef((props, ref) => { // 'ref' adalah parameter
           </p>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
-            I'M{" "}
-            <span className="text-purple-400">Rehan Pranama Putra</span>
+            I'M <span className="text-purple-400">Rehan Pranama Putra</span>
           </h1>
-          
+
           <div className="relative h-8 sm:h-10 overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.p
@@ -119,21 +122,21 @@ const HeroSection = React.forwardRef((props, ref) => { // 'ref' adalah parameter
         </div>
 
         {/* Kolom kanan */}
-          <div className="flex justify-center lg:justify-end">
-            <ProfileCard
-              className="custom-profile-card"
-              name="Rehan Pranama Putra"
-              title="Web & Mobile Development"
-              handle="sikoding"
-              status="Online"
-              contactText="Contact Me"
-              avatarUrl="/profilcard.png"
-              showUserInfo={true}
-              enableTilt={true}
-              enableMobileTilt={false}
-              onContactClick={() => console.log("Contact clicked")}
-            />
-          </div>
+        <div className="flex justify-center lg:justify-end">
+          <ProfileCard
+            className="custom-profile-card"
+            name="Rehan Pranama Putra"
+            title="Web & Mobile Development"
+            handle="sikoding"
+            status="Online"
+            contactText="Contact Me"
+            avatarUrl="/profilcard.png"
+            showUserInfo={true}
+            enableTilt={true}
+            enableMobileTilt={false}
+            onContactClick={() => console.log("Contact clicked")}
+          />
+        </div>
       </motion.div>
     </section>
   );

@@ -53,7 +53,7 @@ const AboutSection = React.forwardRef((props, ref) => {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }} // Durasi dan easing animasi, dengan delay
             className="flex justify-center items-center h-full mt-8 md:mt-0"
           >
-            <div className="w-[300px] h-[480px] sm:w-[350px] sm:h-[520px] md:w-[400px] md:h-[600px] overflow-visible">
+            <div className="w-full max-w-sm overflow-visible">
               <Lanyard
                 position={[0, 0, 18]}
                 gravity={[0, -40, 0]}
