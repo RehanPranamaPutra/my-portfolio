@@ -9,6 +9,7 @@ import PageTransition from "./components/PageTransition.jsx";
 import SkillsSection from "./components/SkillSection.jsx";
 import ProjectSection from "./components/ProjectSection.jsx";
 import ContactSection from "./components/ContactSection.jsx";
+
 // import SplashCursor from "./ui/SplashCursor/SplashCursor";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         }}
       >
         <Hyperspeed />
+        
       </div>
 
       {/* Tampilkan LoadingScreen jika state loading adalah true */}

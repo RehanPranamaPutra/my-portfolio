@@ -16,8 +16,6 @@ export default function SkillsSection() {
     { name: "Dart", logo: "/dart.jpg" },
     { name: "Java", logo: "/java.png" },
     { name: "Kotlin", logo: "/kotlin.png" },
-    { name: "C++", logo: "/c++r.png" },
-    { name: "C#", logo: "/cr.png" },
     { name: "git", logo: "/git.png" },
   ];
 

@@ -7,7 +7,12 @@ import { motion, AnimatePresence } from "framer-motion"; // Pastikan motion diim
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 // gsap.registerPlugin(ScrollTrigger);
 
-const roles = ["Web Development", "Mobile Development", "Backend Development"];
+const roles = [
+  "Web Development",
+  "Mobile Development",
+  "Backend Development",
+  "System Analyst",
+];
 
 // Menggunakan React.forwardRef untuk meneruskan ref ke elemen DOM akar
 const HeroSection = React.forwardRef((props, ref) => {
@@ -107,13 +112,15 @@ const HeroSection = React.forwardRef((props, ref) => {
 
           <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center lg:justify-start">
             <a
-              href="#cv"
+              href="https://drive.google.com/file/d/1xKuK-BP-POlrmI77Pz8_NNjRNrRhjwvC/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-5 py-2 border border-gray-500 hover:border-purple-500 rounded-lg transition text-sm sm:text-base"
             >
               Download CV
             </a>
             <a
-              href="#projects"
+              href="#project"
               className="px-5 py-2 border border-gray-500 hover:border-purple-500 rounded-lg transition text-sm sm:text-base"
             >
               Explore My Projects

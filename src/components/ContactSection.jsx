@@ -64,7 +64,7 @@ const ContactSection = React.forwardRef((props, ref) => {
             {/* Social Media Links */}
             <div className="flex space-x-6 mt-6">
               <a
-                href="https://github.com/rehanpranamaputra"
+                href="https://github.com/RehanPranamaPutra"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-purple-400 transition text-3xl"
@@ -72,7 +72,7 @@ const ContactSection = React.forwardRef((props, ref) => {
                 <FaGithub />
               </a>
               <a
-                href="https://linkedin.com/in/rehanpranamaputra"
+                href="https://www.linkedin.com/in/rehan-pranama-putra/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-purple-400 transition text-3xl"
@@ -80,15 +80,7 @@ const ContactSection = React.forwardRef((props, ref) => {
                 <FaLinkedin />
               </a>
               <a
-                href="https://linkedin.com/in/rehanpranamaputra"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-purple-400 transition text-3xl"
-              >
-                <FaWhatsapp />
-              </a>
-              <a
-                href="https://linkedin.com/in/rehanpranamaputra"
+                href="https://www.tiktok.com/@sikoding"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-purple-400 transition text-3xl"

@@ -13,7 +13,6 @@ const AboutSection = React.forwardRef((props, ref) => {
     >
       <div className="relative max-w-6xl w-full bg-black/60 rounded-2xl border border-purple-500/30 shadow-[0_0_30px_rgba(168,85,247,0.5)] overflow-hidden p-8 md:p-12 backdrop-blur">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          
           {/* Bagian Teks - Diberi animasi dengan Framer Motion */}
           <motion.div
             initial={{ opacity: 0, x: -100 }} // Awal: tersembunyi, geser dari kiri
@@ -24,18 +23,21 @@ const AboutSection = React.forwardRef((props, ref) => {
           >
             <h2 className="text-3xl font-bold mb-4">About Me</h2>
             <p className="text-gray-300 leading-relaxed mb-8 max-w-lg">
-              I'm <span className="font-semibold">Rehan Pranama Putra</span>, a
-              web & mobile developer passionate about creating modern,
-              high-performance applications with elegant UI and intuitive UX. I
-              love working with the latest technologies like React, Tailwind,
-              Node.js, and cloud-based systems — blending creativity with
-              problem-solving to deliver impactful solutions.
+              I'm <span className="font-bold">Rehan Pranama Putra</span>, adalah
+              seorang Web dan Mobile Developer yang berfokus pada pengembangan
+              aplikasi berbasis Laravel, Flutter, Kotlin, dan PHP. Saya memiliki
+              passion dalam membangun sistem yang efisien, user-friendly, dan
+              modern — mulai dari website sistem informasi, dashboard admin,
+              hingga aplikasi mobile Android. Saya terus mengasah kemampuan
+              dalam perancangan UI/UX, integrasi API, serta pengelolaan database
+              untuk menciptakan aplikasi yang tidak hanya berfungsi dengan baik,
+              tetapi juga memiliki tampilan yang menarik dan responsif.
             </p>
 
             {/* Statistik */}
             <div className="flex gap-12">
               <div>
-                <p className="text-3xl font-bold text-purple-400">20+</p>
+                <p className="text-3xl font-bold text-purple-400">10+</p>
                 <p className="text-gray-400 text-sm">Projects Finished</p>
               </div>
               <div>
@@ -61,7 +63,6 @@ const AboutSection = React.forwardRef((props, ref) => {
               />
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>
